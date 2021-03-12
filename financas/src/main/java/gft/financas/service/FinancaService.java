@@ -5,6 +5,7 @@ import gft.financas.domain.Lancamento;
 import gft.financas.persistence.FinancasRepository;
 import gft.financas.persistence.LancamentosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -17,35 +18,6 @@ public class FinancaService {
 
     @Autowired
     private LancamentosRepository lancamentosRepository;
-
-/*    public void somaDeLancamentosAnual(Financa financa){
-        double total = 0;
-        for (Lancamento lancamento : financa.getLancamentos()) {
-            lancamento = lancamentosRepository.findById(lancamento.getId()).orElse(null);
-            total = total + lancamento.getValor().doubleValue();
-        }
-        financa.setObjetivo_Anual(financa.getObjetivo_Mensal().multiply(BigDecimal.valueOf(12)).subtract(BigDecimal.valueOf(total)));
-
-    }
-
-    public void somaDeLancamentosMensal(Financa financa){
-        double total = 0;
-        for (Lancamento lancamento : financa.getLancamentos()) {
-            lancamento = lancamentosRepository.findById(lancamento.getId()).orElse(null);
-            total = total + lancamento.getValor().doubleValue();
-        }
-        financa.setObjetivo_Mensal(financa.getObjetivo_Mensal().subtract(BigDecimal.valueOf(total)));
-
-    }*/
-/*
-
-    public Financa salvar(Financa financa){
-        somaDeLancamentosMensal(financa);
-        somaDeLancamentosAnual(financa);
-
-        return financasRepository.save(financa);
-    }
-*/
 
     public Financa salvar(Financa financa){
         double total = 0;
