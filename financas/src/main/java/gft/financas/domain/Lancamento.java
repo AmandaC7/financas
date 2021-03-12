@@ -1,5 +1,6 @@
 package gft.financas.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +22,7 @@ public class Lancamento {
 
     private BigDecimal valor;
 
+    @JsonFormat(pattern="yyyy-dd-MM")
     @Temporal(TemporalType.DATE)
     private Date data;
 
@@ -28,7 +30,6 @@ public class Lancamento {
     private Tag tag;
 
     private boolean is_Pago;
-
 
     @Override
     public boolean equals(Object o) {
